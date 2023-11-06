@@ -12,13 +12,13 @@ Before getting started, ensure that you have the following prerequisites install
 To start the application using `docker-compose`, follow these steps:
 
 1. Clone this repository to your local machine:
-   git clone https://github.com/your-username/pokemon-go-data.git
+   git clone https://github.com/omaralhawamdeh97/KIB-pokemon-app.git
 
 2. Navigate to the project directory:
-   cd pokemon-go-data
+   cd KIB-pokemon-app
 
 3. Start the application and the PostgreSQL database using `docker-compose`:
-   docker-compose up
+   sudo docker-compose up
 
 This command will start both the application and the database. The application will automatically import data from the provided Excel sheet into the PostgreSQL database. Ensure that the `pokemonData.xlsx` file is located in the root directory.
 
