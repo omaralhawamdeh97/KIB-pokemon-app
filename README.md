@@ -29,13 +29,13 @@ API Endpoints
 The API provides the following endpoints:
 
 - GET     localhost:8080:             Retrieve a list of Pokémon.
-     This endpoint has the following query params:      
-      1. page:         Int
-      2. pageSize:     Int  //The default is 10
-      3. name:         String
-      4. legendary:    Int
-      5. type:         String
-      6. generation:   Int
+This endpoint has the following query params:      
+1. page:         Int
+2. pageSize:     Int  //The default is 10
+3. name:         String
+4. legendary:    Int
+5. type:         String
+6. generation:   Int
   
 - GET     localhost:8080/:id:         Retrieve a specific Pokémon by ID.
 - POST    localhost:8080/:            Create a new Pokémon.
