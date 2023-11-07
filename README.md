@@ -54,3 +54,7 @@ The API provides the following endpoints:
             "spawns"         :true
 - PUT     localhost:8080/:id:         Update an existing Pokémon.
 - DELETE  localhost:8080/delete/:id:  Delete a Pokémon by ID.
+
+## Tests
+we have 5 tests files located at src/tests
+you can run the tests using npm test
