@@ -40,18 +40,31 @@ This endpoint has the following query params:
 - GET     localhost:8080/:id:         Retrieve a specific Pokémon by ID.
   
 - POST    localhost:8080/:            Create a new Pokémon.
+
 There are required fields for creating a Pokemon here is an example of the required fields and their values:
-"name"           :"new-pokemon",  
-"pokedexNumber"  :8000,     
-"generation"     :2,
+
+"name"           :"new-pokemon", 
+
+"pokedexNumber"  :8000,   
+
+"generation"     :2, 
+
 "type1"          :"Electric",
-"weather1"       :"Snow",
-"statTotal"      :1000,
-"atk"            :320,
+
+"weather1"       :"Snow", 
+
+"statTotal"      :1000, 
+
+"atk"            :320, 
+
 "def"            :200,
-"sta"            :30,
+
+"sta"            :30, 
+
 "cpAt40"         :700,
+
 "cpAt39"         :350,
+
 "spawns"         :true
 
 - PUT     localhost:8080/:id:         Update an existing Pokémon.
