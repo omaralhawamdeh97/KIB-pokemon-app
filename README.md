@@ -28,8 +28,29 @@ API Endpoints
 
 The API provides the following endpoints:
 
-- GET /pokemons: Retrieve a list of Pokémon.
-- GET /pokemons/:id: Retrieve a specific Pokémon by ID.
-- POST /pokemons: Create a new Pokémon.
-- PUT /pokemons/:id: Update an existing Pokémon.
-- DELETE /pokemons/:id: Delete a Pokémon by ID.
+- GET     localhost:8080:             Retrieve a list of Pokémon.
+     This endpoint has the following query params:      
+      - page:         Int
+      - pageSize:     Int  //The default is 10
+      - name:         String
+      - legendary:    Int
+      - type:         String
+      - generation:   Int
+  
+- GET     localhost:8080/:id:         Retrieve a specific Pokémon by ID.
+- POST    localhost:8080/:            Create a new Pokémon.
+      There are required fields for creating a Pokemon here is an example of the required fields and their values:
+            "name"           :"new-pokemon",  
+            "pokedexNumber"  :8000,     
+            "generation"     :2,
+            "type1"          :"Electric",
+            "weather1"       :"Snow",
+            "statTotal"      :1000,
+            "atk"            :320,
+            "def"            :200,
+            "sta"            :30,
+            "cpAt40"         :700,
+            "cpAt39"         :350,
+            "spawns"         :true
+- PUT     localhost:8080/:id:         Update an existing Pokémon.
+- DELETE  localhost:8080/delete/:id:  Delete a Pokémon by ID.
