@@ -2,12 +2,12 @@ const prisma = require("../../prisma");
 const pokemonSchema = require("./pokemonJoiSchema");
 
 const getPokemons = async (queryParams) => {
+
   try {
-    const { name, type, generation, legendary, page = 1, pageSize = 10 } = queryParams;
-    // Ensure that page is a positive integer
-    const validPage = parseInt(page);
-    // Calculate the number of records to skip based on validPage
-    const skip = (validPage - 1) * pageSize;
+    const { name, type, generation, legendary, page, pageSize } = queryParams;
+    const validPage = parseInt(page) || 1
+    const validPageSize = parseInt(pageSize) || 10
+    const skip = (validPage - 1) * validPageSize;
 
     const query = {
       where: {
@@ -18,16 +18,13 @@ const getPokemons = async (queryParams) => {
           legendary ? { legendary: +legendary } : {},
         ],
       },
-      skip,
-      take: +pageSize 
+      skip: skip || 0,
+      take: validPageSize 
     };
 
-    // Fetch the filtered Pokémon records
     const filteredPokemon = await prisma.pokemon.findMany(query);
-
     const totalRecords = await prisma.pokemon.count({ where: query.where });
-
-    const totalPages = Math.ceil(totalRecords / pageSize );
+    const totalPages = Math.ceil(totalRecords / validPageSize );
 
     if(validPage > totalPages ){
       return {
@@ -44,17 +41,16 @@ const getPokemons = async (queryParams) => {
       currentPage: validPage,
       recordsOnThisPage: filteredPokemon.length,
     };
-
+    
     return { success: true, data: serviceResult };
+
   } catch (error) {
     return { success: false, error: { message: error.message, name: error.name } };
   }
 };
 
-
-  const newPokemon = async (user) => {
+const newPokemon = async (user) => {
     try {
-     
       const { error, value } = pokemonSchema.validate(user);
       if (error) {
         return {
@@ -76,7 +72,6 @@ const getPokemons = async (queryParams) => {
     }
   };
   
-
 
 const deletePoke = async (id) => {
   try {
